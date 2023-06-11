@@ -8,12 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FirstControllerController extends AbstractController
 {
-    #[Route('/first', name: 'app_first_controller')]
+    #[Route('/first', name: 'first')]
     public function index(): Response
     {
        
        return $this->render('first_controller/index.html.twig', [
-        'controller_name' => 'FirstControllerController',
+        'path' => '    '
        ]);
     }
 }
