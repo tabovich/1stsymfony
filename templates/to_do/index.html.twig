@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
+</head>
+<body>
+
+    {% for message in  app.session.flashbag.get('info')%}
+        <div class="alert alert-info">
+            {{message}}
+        </div>
+    {% endfor %}
+
+    {% for message in  app.session.flashbag.get('success')%}
+        <div class="alert alert-success">
+            {{message}}
+        </div>
+    {% endfor %}
+
+    {% for message in  app.session.flashbag.get('error')%}
+        <div class="alert alert-danger">
+            {{message}}
+        </div>
+    {% endfor %}
+
+    <h1>Liste des todos: </h1>
+    <ol class="list-group">
+        <!-- syntaxe twig pour boucler sur le tableau todos qui est cherché par app.session.get('todos') -->
+        {% for key,element in app.session.get('todos')%}
+          <li class="list-group-item">  
+            {{ key}} : {{ element }}
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
